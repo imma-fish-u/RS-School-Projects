@@ -1,2 +1,2 @@
 # imma-fish-u-JSFE2021Q3
-Private repository for @imma-fish-u
+https://rolling-scopes-school.github.io/imma-fish-u-JS2020Q3/museum/

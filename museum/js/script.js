@@ -115,7 +115,7 @@ function initComparisons() {
   }
 }
 
-initComparisons();
+document.onload = initComparisons();
 
 /*==================== SWIPER ====================*/
 

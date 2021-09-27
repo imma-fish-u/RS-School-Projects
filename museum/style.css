@@ -632,11 +632,11 @@ a.font-white:active {
 }
 
 .swiper-button-prev {
-  background: url(/assets/svg/video-arrow-left.svg) no-repeat;
+  background: url(./assets/svg/video-arrow-left.svg) no-repeat;
 }
 
 .swiper-button-next {
-  background: url(/assets/svg/video-arrow-right.svg) no-repeat;
+  background: url(./assets/svg/video-arrow-right.svg) no-repeat;
 }
 
 .swiper-pagination {
@@ -876,7 +876,7 @@ a.font-white:active {
   float: right;
   width: 25px;
   height: 25px;
-  background: url(/assets/svg/contact/close.svg) no-repeat;
+  background: url(./assets/svg/contact/close.svg) no-repeat;
   cursor: pointer;
 }
 
@@ -917,7 +917,7 @@ a.font-white:active {
 .tickets-modal__logo {
   width: 85px;
   height: 41px;
-  background-image: url(/assets/svg/logo-gold.svg);
+  background-image: url(./assets/svg/logo-gold.svg);
 }
 
 .tickets-modal__title {
@@ -975,7 +975,7 @@ input[type="time"]:in-range::-webkit-datetime-edit {
 
 input[type="date"].with-contact__icon, 
 .icon-date {
-  background-image: url(/assets/svg/contact/date.svg);
+  background-image: url(./assets/svg/contact/date.svg);
 }
 
 input[type="date"]:in-range::before {
@@ -985,7 +985,7 @@ input[type="date"]:in-range::before {
 
 input[type="time"].with-contact__icon,
 .icon-time {
-  background-image: url(/assets/svg/contact/time.svg);
+  background-image: url(./assets/svg/contact/time.svg);
 }
 
 input[type="time"]:in-range::before {
@@ -998,7 +998,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator,
 .select-icon {
   transform: translateX(-7px);
   width: 1.6em;
-  background-image: url(/assets/svg/contact/arrow.svg);
+  background-image: url(./assets/svg/contact/arrow.svg);
 }
 
 select#ticket-type option {
@@ -1010,21 +1010,21 @@ input::-webkit-input-placeholder {
 }
 
 input#name {
-  background-image: url(/assets/svg/contact/name.svg);
+  background-image: url(./assets/svg/contact/name.svg);
 }
 
 input#email {
-  background-image: url(/assets/svg/contact/email.svg);
+  background-image: url(./assets/svg/contact/email.svg);
 }
 
 input#phone {
-  background-image: url(/assets/svg/contact/tel.svg);
+  background-image: url(./assets/svg/contact/tel.svg);
 }
 
 select#ticket-type {
   position: relative;
   width: 100%;
-  background: url(/assets/svg/contact/arrow.svg) 96% center no-repeat, url(/assets/svg/contact/ticket-type.svg) 4% center no-repeat;
+  background: url(./assets/svg/contact/arrow.svg) 96% center no-repeat, url(./assets/svg/contact/ticket-type.svg) 4% center no-repeat;
   appearance: none; 
 	-webkit-appearance: none;
 	-moz-appearance: none; 
@@ -1043,7 +1043,7 @@ select::-ms-expand {
 }
 
 .icon-type {
-  background-image: url(/assets/svg/contact/check-circle.svg);
+  background-image: url(./assets/svg/contact/check-circle.svg);
 }
 
 .tickets-modal__quantities {
@@ -1217,11 +1217,11 @@ select::-ms-expand {
 }
 
 .card-type__visa {
-  background-image: url(/assets/svg/contact/visa.svg);
+  background-image: url(./assets/svg/contact/visa.svg);
 }
 
 .card-type__master {
-  background-image: url(/assets/svg/contact/mastercard.svg);
+  background-image: url(./assets/svg/contact/mastercard.svg);
 }
 
 .card-label {
@@ -1255,7 +1255,7 @@ select::-ms-expand {
 .card-exp-date::-webkit-outer-spin-button, 
 .card-exp-date::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    background: #FFF url(/assets/svg/contact/input-num-spin.svg) no-repeat center center;
+    background: #FFF url(./assets/svg/contact/input-num-spin.svg) no-repeat center center;
     width: 28px;
     border-left: 1px solid #BBB;
     opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */

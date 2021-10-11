@@ -76,7 +76,6 @@ slides.forEach((slide, index) => {
   // Mouse events
   slide.addEventListener('mousedown', touchStart(index))
   slide.addEventListener('mouseup', touchEnd)
-  slide.addEventListener('mouseleave', touchEnd)
   slide.addEventListener('mousemove', touchMove)
 })
 

@@ -72,7 +72,7 @@ function initComparisons() {
 
   function compareImages(img) {
     var img, clicked = 0, w, h;
-    w = imgBefore.offsetWidth;
+    w = 700;
     h = img.offsetHeight;
 
     slider.addEventListener("mousedown", slideReady);

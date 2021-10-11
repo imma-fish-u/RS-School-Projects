@@ -1,0 +1,45 @@
+/*==================== SCROLL REVEAL ====================*/
+document.addEventListener("DOMContentLoaded", function () {
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.4
+  };
+
+  let revealCallback = (entries) => {
+    entries.forEach((entry) => {
+      let container = entry.target;
+
+      if (entry.isIntersecting) {
+        container.classList.add("fade-up");
+        return;
+      }
+
+      if (entry.boundingClientRect.top > 0) {
+        container.classList.remove("fade-up");
+      }
+    });
+  };
+
+  let revealObserver = new IntersectionObserver(revealCallback, options);
+
+  document.querySelectorAll(".gallery__img").forEach((reveal) => {
+    revealObserver.observe(reveal);
+  });
+
+});
+
+--------------------------------------------------------------
+
+.gallery__img {
+  width: 100%;
+  opacity: 0;
+  transition: 0.4s ease-out;
+  transform: translateY(40px);
+}
+
+.fade-up {
+  opacity: 1;
+  transition: 1s ease-out;
+  transform: translateY(0px);
+}

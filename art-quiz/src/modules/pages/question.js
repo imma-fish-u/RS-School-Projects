@@ -59,8 +59,19 @@ class Question {
     }
   }
 
+  getGuessedPics() {
+    const guessedPics = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const { isCorrect: c } of this.answers) {
+      guessedPics.push(c);
+    }
+
+    return guessedPics;
+  }
+
   endQuiz() {
-    this.finalModal = new FinalModal(this.correctAmount, this.totalAmount);
+    this.finalModal = new FinalModal(this.getGuessedPics(), this.correctAmount, this.totalAmount);
   }
 }
 

@@ -1,3 +1,5 @@
+import SUtils from '../services/storageUtils.js';
+
 class Start {
   constructor() {
     this.url = '../../views/start.html';
@@ -14,7 +16,7 @@ class Start {
     const startButtons = document.querySelectorAll('.start__btn');
 
     for (let i = 0; i < startButtons.length; i += 1) {
-      startButtons[i].addEventListener('click', () => { localStorage.setItem('game', i); });
+      startButtons[i].addEventListener('click', () => { SUtils.storeGameType(i); });
     }
   }
 }

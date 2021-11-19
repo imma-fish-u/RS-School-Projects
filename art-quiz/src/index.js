@@ -4,7 +4,7 @@ import Category from './modules/pages/category.js';
 import Quiz from './modules/pages/quiz.js';
 // import Register     from './modules/pages/register.js'
 
-import Utils from './modules/services/utils.js';
+import Utils from './modules/services/routeUtils.js';
 
 // List of supported routes. Any url other than these routes will throw a 404 error
 const routes = {

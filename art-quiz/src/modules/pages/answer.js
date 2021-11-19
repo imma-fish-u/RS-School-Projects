@@ -3,13 +3,10 @@ class Answer {
     this.data = imgData;
     this.correctAnswer = imgData.author;
     this.isCorrect = false;
-
-    this.answers = [];
   }
 
   async getAnswers() {
-    this.answers = this.shuffleAnswers(await this.setAnswers());
-    return this.answers;
+    return this.shuffleAnswers(await this.setAnswers());
   }
 
   getRandomIndex(num) {

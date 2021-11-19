@@ -170,8 +170,8 @@ i {
   background-color: var(--grey-dark);
 }
 
-.category__decor-active .category__decor-dot,
-.category__decor-active .category__decor-line {
+.active .category__decor-dot,
+.active .category__decor-line {
   background-color: var(--gold);
 }
 
@@ -194,6 +194,10 @@ i {
   align-items: flex-end;
   padding-bottom: 0.5rem;
   opacity: 0;
+}
+
+.active .category__description {
+  opacity: 1;
 }
 
 .category__score {

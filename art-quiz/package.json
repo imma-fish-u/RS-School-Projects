@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "description": "My new js application",
   "private": true,
-  "name": "quiz",
+  "name": "art-quiz",
   "scripts": {
     "start": "rss-scripts start",
     "build": "rss-scripts build"

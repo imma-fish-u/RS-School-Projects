@@ -1,6 +1,23 @@
+import SUtils from '../services/storageUtils.js';
+
 class Category {
   constructor() {
+    this.categories = '';
+    this.categoriesItem = '';
+    this.categoriesScore = '';
+
     this.url = '../../views/category.html';
+  }
+
+  showPlayedCategories() {
+    for (let i = 0; i < this.categories.length; i += 1) {
+      const data = SUtils.getGameFromStorage(this.categories[i].id);
+      if (data) {
+        this.categoriesScore[i].innerText = data.score;
+        this.categoriesItem[i].classList.add('active');
+        this.categories[i].classList.remove('grey-filter');
+      }
+    }
   }
 
   async render() {
@@ -10,11 +27,15 @@ class Category {
   }
 
   async afterRender() {
-    const categories = document.querySelectorAll('.category__pic');
+    this.categories = document.querySelectorAll('.category__pic');
+    this.categoriesItem = document.querySelectorAll('.category__item');
+    this.categoriesScore = document.querySelectorAll('.category__description-score');
 
-    for (let i = 0; i < categories.length; i += 1) {
-      const categoryType = categories[i].id;
-      categories[i].addEventListener('click', () => { localStorage.setItem('category', categoryType); });
+    this.showPlayedCategories();
+
+    for (let i = 0; i < this.categories.length; i += 1) {
+      const categoryType = this.categories[i].id;
+      this.categories[i].addEventListener('click', () => { SUtils.storeCategory(categoryType); });
     }
   }
 }

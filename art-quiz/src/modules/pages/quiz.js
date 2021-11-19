@@ -1,10 +1,11 @@
 import Answer from './answer.js';
-import Question from './question.js'
+import Question from './question.js';
+import SUtils from '../services/storageUtils.js';
 
 class Quiz {
   constructor() {
-    this.categoryType = localStorage.getItem('category') || 'portrait';
-    this.gameType = localStorage.getItem('game') || '0';
+    this.categoryType = SUtils.getCategoryFromStorage();
+    this.gameType = SUtils.getGameTypeFromStorage();
 
     this.totalAmount = 10;
 
@@ -49,7 +50,6 @@ class Quiz {
       btn.addEventListener('click', () => {
         if (btn.firstChild.checked) {
           question.showResult(btn);
-          // background.
         }
       });
     }

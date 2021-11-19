@@ -1,12 +1,14 @@
-import Modal from "./modal.js";
+import Modal from './modal.js';
+import SUtils from '../services/storageUtils.js';
 
 class FinalModal extends Modal {
-  constructor(count, totalAmount) {
+  constructor(guessedPics, count, totalAmount) {
     super();
 
     this.modal = document.getElementById('final-modal');
     this.scoreElement = document.getElementById('final-score');
 
+    this.guessedPics = guessedPics;
     this.count = count;
     this.totalAmount = totalAmount;
 
@@ -15,7 +17,11 @@ class FinalModal extends Modal {
   }
 
   renderModal() {
-    this.scoreElement.innerHTML = `${this.count}/${this.totalAmount}`;
+    const name = SUtils.getCategoryFromStorage();
+    const score = `${this.count}/${this.totalAmount}`;
+    SUtils.storeGame(name, score, this.guessedPics);
+
+    this.scoreElement.innerHTML = score;
   }
 }
 

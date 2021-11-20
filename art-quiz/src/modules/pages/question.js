@@ -7,7 +7,6 @@ class Question {
     this.quizImg = document.getElementById('quiz__img');
     this.pagination = document.querySelector('.quiz__pagination');
     this.answerElements = document.querySelectorAll('.quiz__btn');
-    this.nextBtn = document.getElementById('quiz-next-btn');
 
     this.answers = answers;
     this.totalAmount = 10;
@@ -16,11 +15,6 @@ class Question {
 
     this.quizModal = {};
     this.finalModal = {};
-
-    this.nextBtn.addEventListener('click', () => {
-      this.nextQuestion();
-      this.quizModal.setModal();
-    });
   }
 
   async renderQuestion() {
@@ -45,6 +39,8 @@ class Question {
     } else {
       this.endQuiz();
     }
+
+    this.quizModal.setModal();
   }
 
   showResult(answerEl) {
@@ -59,19 +55,8 @@ class Question {
     }
   }
 
-  getGuessedPics() {
-    const guessedPics = [];
-
-    // eslint-disable-next-line no-restricted-syntax
-    for (const { isCorrect: c } of this.answers) {
-      guessedPics.push(c);
-    }
-
-    return guessedPics;
-  }
-
   endQuiz() {
-    this.finalModal = new FinalModal(this.getGuessedPics(), this.correctAmount, this.totalAmount);
+    this.finalModal = new FinalModal(this.answers, this.correctAmount, this.totalAmount);
   }
 }
 

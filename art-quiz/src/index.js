@@ -5,12 +5,14 @@ import Quiz from './modules/pages/quiz.js';
 // import Register     from './modules/pages/register.js'
 
 import Utils from './modules/services/routeUtils.js';
+import Score from './modules/pages/score.js';
 
 // List of supported routes. Any url other than these routes will throw a 404 error
 const routes = {
   '/': Start,
   '/category': Category,
   '/quiz': Quiz,
+  '/score': Score,
   // , '/p/:id'      : PostShow
   // , '/register'   : Register
 };

@@ -1,10 +1,16 @@
 import SUtils from '../services/storageUtils.js';
+import Score from './score.js';
+import Component from './component.js'
 
-class Category {
+class Category extends Component {
   constructor() {
+    super();
+
     this.categories = '';
     this.categoriesItem = '';
     this.categoriesScore = '';
+
+    this.score = {};
 
     this.url = '../../views/category.html';
   }
@@ -20,12 +26,6 @@ class Category {
     }
   }
 
-  async render() {
-    const response = await fetch(this.url);
-    const data = await response.text();
-    return data;
-  }
-
   async afterRender() {
     this.categories = document.querySelectorAll('.category__pic');
     this.categoriesItem = document.querySelectorAll('.category__item');
@@ -35,7 +35,9 @@ class Category {
 
     for (let i = 0; i < this.categories.length; i += 1) {
       const categoryType = this.categories[i].id;
+      const categoriesScoreBtn = this.categoriesScore[i].parentNode;
       this.categories[i].addEventListener('click', () => { SUtils.storeCategory(categoryType); });
+      categoriesScoreBtn.addEventListener('click', () => { SUtils.storeCategory(categoryType); });
     }
   }
 }

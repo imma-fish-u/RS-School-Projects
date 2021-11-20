@@ -1,5 +1,6 @@
 class Modal {
   constructor() {
+    this.modal = '';
     this.background = document.getElementById('dark-filter');
   }
 

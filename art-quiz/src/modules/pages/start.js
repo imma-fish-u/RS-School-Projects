@@ -1,18 +1,13 @@
 import SUtils from '../services/storageUtils.js';
+import Component from './component.js';
 
-class Start {
+class Start extends Component {
   constructor() {
+    super();
     this.url = '../../views/start.html';
   }
 
-  async render() {
-    const response = await fetch(this.url);
-    const data = await response.text();
-    return data;
-  }
-
   async afterRender() {
-    //  const categoryElement = document.getElementById('category');
     const startButtons = document.querySelectorAll('.start__btn');
 
     for (let i = 0; i < startButtons.length; i += 1) {

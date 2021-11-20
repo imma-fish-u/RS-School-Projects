@@ -3,7 +3,7 @@ class StorageUtils {
     const category = {
       name: args[0],
       score: args[1],
-      guessedPicArr: args[2],
+      guessedPics: args[2],
     };
 
     localStorage.setItem(`${category.name}`, JSON.stringify(category));

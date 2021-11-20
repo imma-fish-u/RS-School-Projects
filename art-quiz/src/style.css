@@ -191,20 +191,14 @@ i {
   height: 100%;
 }
 
-.category__description {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.category__score {
   padding-bottom: 0.5rem;
+  color: var(--gold);
   opacity: 0;
 }
 
-.active .category__description {
+.active .category__score {
   opacity: 1;
-}
-
-.category__score {
-  color: var(--gold);
 }
 
 .category__again-btn {

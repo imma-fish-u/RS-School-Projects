@@ -138,6 +138,7 @@ i {
 }
 
 .navbar {
+  width: 100%;
   margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
@@ -278,7 +279,7 @@ i {
 
 .quiz__heading {
   padding-bottom: 1.5rem;
-  font-size: 2.3rem;
+  font-size: 1.7rem;
   text-align: center;
   line-height: 2.5rem;
   font-weight: 100;
@@ -367,8 +368,7 @@ label input{
   height: 48vh;
 }
 
-.quiz__modal,
-.final__modal {
+.quiz__modal {
   position: absolute;
   display: none;
   width: 100%;
@@ -418,33 +418,29 @@ label input{
   background-color: var(--grey-light);
 }
 
-.final__modal {
-  top: 20vh;
-  height: 60vh;
-}
-
-.final__modal.show {
+.final {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.final__modal-home {
+.final-home {
   align-self: flex-start;
   color: var(--gold-dark);
 }
 
-.final__modal-img {
-  width: 50vw;
+.final-img {
+  width: 14rem;
   display: block;
   filter: sepia(0.3);
 }
 
-.final__modal-text {
+.final-text {
   font-size: 1.2rem;
 }
 
-.final__modal-score {
+.final-score {
   font-size: 2rem;
   font-weight: bold;
 }

@@ -1,5 +1,6 @@
+import SUtils from '../services/storageUtils.js';
 import QuizModal from './quizModal.js';
-import FinalModal from './finalModal.js';
+import Final from './final.js';
 
 class Question {
   constructor(answers) {
@@ -14,7 +15,7 @@ class Question {
     this.correctAmount = 0;
 
     this.quizModal = {};
-    this.finalModal = {};
+    this.final = {};
   }
 
   async renderQuestion() {
@@ -55,8 +56,15 @@ class Question {
     }
   }
 
+  storeResults() {
+    const name = SUtils.getCategoryFromStorage();
+    const score = `${this.correctAmount}/${this.totalAmount}`;
+    SUtils.storeGame(name, score, this.answers);
+  }
+
   endQuiz() {
-    this.finalModal = new FinalModal(this.answers, this.correctAmount, this.totalAmount);
+    this.storeResults();
+    window.location.hash = '#final';
   }
 }
 

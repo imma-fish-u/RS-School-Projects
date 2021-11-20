@@ -10,7 +10,7 @@ class StorageUtils {
   }
 
   static getGameFromStorage(catName) {
-    return JSON.parse(localStorage.getItem(catName));
+    return JSON.parse(localStorage.getItem(catName || this.getCategoryFromStorage()));
   }
 
   static storeCategory(categoryType) {

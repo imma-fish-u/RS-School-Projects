@@ -1,5 +1,4 @@
 import SUtils from '../services/storageUtils.js';
-import Score from './score.js';
 import Component from './component.js'
 
 class Category extends Component {
@@ -9,8 +8,6 @@ class Category extends Component {
     this.categories = '';
     this.categoriesItem = '';
     this.categoriesScore = '';
-
-    this.score = {};
 
     this.url = '../../views/category.html';
   }

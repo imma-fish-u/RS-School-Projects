@@ -1,6 +1,41 @@
+<header class="settings" id="settings-modal">
+  <nav class="navbar">
+    <div class="navbar__icon"></div>
+    <p class="navbar__text">Settings</p>
+    <div class="navbar__icon"><i class="uit uit-multiply"></i></div>
+  </nav>
+  <div class="settings__container">
+      <p class="settings__text">Timer</p>
+      <div class="switch settings__switch">
+        <input type="radio" name="switch-timer" id="switch-off" checked>
+        <input type="radio" name="switch-timer" id="switch-on">
+        <span class="toggle"></span>
+      </div>
+      <select name="timer" id="timer-select" class="settings__select-timer">
+        <option value="5">5 seconds</option>
+        <option value="10">10 seconds</option>
+        <option value="15">15 seconds</option>
+        <option value="20">20 seconds</option>
+        <option value="25">25 seconds</option>
+        <option value="30">30 seconds</option>
+      </select>
+
+      <p class="settings__text">Music</p>
+      <div class="switch settings__switch">
+        <input type="radio" name="switch-music" id="switch-off" checked>
+        <input type="radio" name="switch-music" id="switch-on">
+        <span class="toggle"></span>
+      </div> 
+      <div class="settings__music">
+        <i class="uil uil-volume-mute"></i>
+        <input type="range" min="0" max="100" value="35" class="progress progress__music"> 
+      </div>
+    </div>
+</header>
+
 <div class="start" id="start">
   <div class="start__img">
-    <a class="start__settings" href="#settings"><i class="uit uit-align-left"></i></a>
+    <a class="start__settings" id="start-settings"><i class="uit uit-align-left"></i></a>
     <h1 class="start__heading gold-grad">Art Quiz</h1>
   </div>
   <div class="start__container">

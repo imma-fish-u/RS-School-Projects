@@ -6,7 +6,7 @@ class Modal {
 
   setModal() {
     this.modal.classList.toggle('show');
-    this.background.classList.toggle('active');
+    if (this.background) this.background.classList.toggle('active');
   }
 }
 

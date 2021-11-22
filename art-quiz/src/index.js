@@ -1,12 +1,9 @@
 import Start from './modules/pages/start.js';
 import Category from './modules/pages/category.js';
-// import Error404     from './modules/pages/error404.js'
 import Quiz from './modules/pages/quiz.js';
 import Final from './modules/pages/final.js';
-// import Register     from './modules/pages/register.js'
-
-import Utils from './modules/services/routeUtils.js';
 import Score from './modules/pages/score.js';
+import Utils from './modules/services/routeUtils.js';
 
 // List of supported routes. Any url other than these routes will throw a 404 error
 const routes = {

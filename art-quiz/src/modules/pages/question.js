@@ -17,11 +17,20 @@ class Question {
     this.final = {};
   }
 
+  setQuestionImage(link) {
+    const img = new Image();
+    img.src = link;
+    img.onload = () => {
+      this.quizImg.style.backgroundImage = `url(${link})`;
+    };
+  }
+
   async renderQuestion() {
     const answer = this.answers[this.answeredAmount];
     const answers = await answer.getAnswers();
 
-    this.quizImg.src = `./image-data/img/${answer.data.imageNum}.jpg`;
+    const link = `./image-data/img/${answer.data.imageNum}.jpg`;
+    this.setQuestionImage(link);
     for (let i = 0; i < this.answerElements.length; i += 1) {
       this.answerElements[i].innerHTML = `<input type="radio" name="radio"><span class="checkmark">${answers[i]}</span>`;
     }

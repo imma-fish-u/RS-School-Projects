@@ -5,7 +5,7 @@ import SettingsModal from './settingsModal.js';
 class Start extends Component {
   constructor() {
     super();
-    this.url = '../../views/start.html';
+    this.url = './views/start.html';
   }
 
   async afterRender() {

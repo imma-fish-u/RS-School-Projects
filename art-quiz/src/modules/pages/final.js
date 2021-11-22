@@ -6,7 +6,7 @@ class Final extends Component {
   constructor() {
     super();
 
-    this.url = '../../views/final.html';
+    this.url = './views/final.html';
   }
 
   setContent(scoreElement) {

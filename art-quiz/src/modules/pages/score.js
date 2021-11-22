@@ -8,7 +8,7 @@ class Score extends Component {
 
     this.categoryType = SUtils.getCategoryFromStorage();
 
-    this.url = '../../views/score.html';
+    this.url = './views/score.html';
   }
 
   getResults() {
@@ -26,15 +26,15 @@ class Score extends Component {
     const div = document.createElement('div');
     if (guessedPic.isCorrect) {
       div.className = 'score__pic';
-      div.innerHTML = `<i class="uit uit-star"></i>
-                      <div class="score__text">
-                        <p class="score__text-author">${author}</p>
-                        <p>${name}, ${year}</p>
-                      </div>`;
     } else {
       div.className = 'score__pic grey-filter';
     }
-    div.style = `background-image: url(../../image-data/img/${imageNum}.jpg);`;
+    div.innerHTML = `<i class="uit uit-star"></i>
+                    <div class="score__text">
+                      <p class="score__text-author">${author}</p>
+                      <p>${name}, ${year}</p>
+                    </div>`;
+    div.style = `background-image: url(./image-data/img/${imageNum}.jpg);`;
     return div;
   }
 

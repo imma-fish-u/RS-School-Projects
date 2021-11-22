@@ -9,7 +9,7 @@ class Category extends Component {
     this.categoriesItem = '';
     this.categoriesScore = '';
 
-    this.url = '../../views/category.html';
+    this.url = './views/category.html';
   }
 
   showPlayedCategories() {

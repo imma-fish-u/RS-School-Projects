@@ -1,4 +1,4 @@
-import SUtils from "../services/storageUtils";
+import SUtils from "../services/storageUtils.js";
 
 class CategoryName {
   constructor() {

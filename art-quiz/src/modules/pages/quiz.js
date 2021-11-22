@@ -17,7 +17,7 @@ class Quiz extends Component {
 
     this.timer = {};
 
-    this.url = (this.gameType) ? '../../views/quiz.html' : '../../views/quiz.html';
+    this.url = (this.gameType) ? './views/quiz.html' : './views/quiz.html';
     this.imgDataArr = []; // здесь лежат 10 объектов полученных из json файла
   }
 

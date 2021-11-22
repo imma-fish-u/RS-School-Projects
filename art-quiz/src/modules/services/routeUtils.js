@@ -1,14 +1,8 @@
 const RouteUtils = {
 
   parseRequestURL: () => {
-    const url = location.hash.slice(1).toLowerCase() || '/';
-    const r = url.split('/');
-    const request = {
-      resource: null,
-      id: null,
-    };
-    request.resource = r[0];
-    request.id = r[1];
+    const url = window.location.hash.slice(1).toLowerCase() || '/';
+    const request = url.split('/');
 
     return request;
   },

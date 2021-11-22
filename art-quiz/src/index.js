@@ -16,8 +16,6 @@ const routes = {
   '/quiz': Quiz,
   '/score': Score,
   '/final': Final,
-  // , '/p/:id'      : PostShow
-  // , '/register'   : Register
 };
 
 // The router code.
@@ -30,7 +28,7 @@ const router = async () => {
   const request = Utils.parseRequestURL();
 
   // Parse the URL and if it has an id part, change it with the string ":id"
-  const parsedURL = (request.resource ? `/${request.resource}` : '/') + (request.id ? '/:id' : '') + (request.verb ? `/${request.verb}` : '');
+  const parsedURL = request ? `/${request}` : '/';
 
   // Get the page from our hash of supported routes.
   // If the parsed URL is not in our list of supported routes, select the 404 page instead

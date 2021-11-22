@@ -43,6 +43,7 @@ li {
 }
 
 a {
+  color: var(--gold-light);
   text-decoration: none;
 }
 
@@ -278,7 +279,7 @@ i {
   font-size: 5.5rem;
   font-weight: lighter;
   width: min-content;
-  padding-top: 11.7rem;
+  padding-top: 11rem;
   padding-left: 1.5rem;
   padding-bottom: 0.2rem;
   line-height: 6.2rem;
@@ -300,18 +301,36 @@ i {
 .start__container {
   position: absolute;
   bottom: 0;
-  padding: 3rem 1rem;
   display: flex;
-  align-items: end;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 1rem;
   width: calc(100% - 2rem);
   height: 30vh;
   background: var(--dark-grad);
 }
 
+.start__btns,
+.start__rs-school {
+  display: flex;
+  align-items: end;
+  justify-content: space-evenly;
+}
+
+.start__btns {
+  margin-bottom: 1rem;
+}
+
 .start__btn {
   padding: 1rem;
   margin: 1rem;
+}
+
+.rs-school-logo {
+  width: 7.6rem;
+  height: 2.9rem;
+  filter: invert(0.7) sepia(1);
+  background-image: url(./assets/svg/rs_school_js.svg);
 }
 
 .star {
@@ -799,6 +818,6 @@ label input{
 
 @media (min-width: 1440px) { 
   .start__container {
-    height: 45vh;
+    height: 35vh;
   }
 }

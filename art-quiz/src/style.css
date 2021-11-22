@@ -56,6 +56,10 @@ i {
   justify-content: center;
 }
 
+#app.hide {
+  opacity: 0;
+}
+
 .gold-grad {
   background: var(--gold-grad);
   color: transparent;

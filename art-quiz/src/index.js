@@ -31,7 +31,13 @@ const router = async () => {
   // If the parsed URL is not in our list of supported routes, select the 404 page instead
   const Page = routes[parsedURL]; // ? routes[parsedURL] : Error404
   const newPage = new Page();
+
+  content.classList.add('hide');
+  await Utils.sleep(500);
+
   content.innerHTML = await newPage.render();
+  content.classList.remove('hide');
+
   await newPage.afterRender();
 };
 

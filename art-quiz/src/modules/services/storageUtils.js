@@ -28,6 +28,26 @@ class StorageUtils {
   static getGameTypeFromStorage() {
     return localStorage.getItem('gameType') || '0';
   }
+
+  static storeTime(time) {
+    localStorage.setItem('time', time);
+  }
+
+  static getTimeFromStorage() {
+    return localStorage.getItem('time');
+  }
+
+  static storeMusic(music) {
+    localStorage.setItem('music', music);
+  }
+
+  static getMusicFromStorage() {
+    return localStorage.getItem('music');
+  }
+
+  static deleteFromStorage(el) {
+    localStorage.removeItem(el);
+  }
 }
 
 export default StorageUtils;

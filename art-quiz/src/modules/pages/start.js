@@ -10,20 +10,22 @@ class Start extends Component {
 
   async afterRender() {
     const startButtons = document.querySelectorAll('.start__btn');
-    const settingsBtn = document.getElementById('start-settings');
+    const settingsOpenBtn = document.getElementById('start-settings');
+    const settingsCloseBtn = document.getElementById('close-settings');
 
     for (let i = 0; i < startButtons.length; i += 1) {
       startButtons[i].addEventListener('click', () => { SUtils.storeGameType(i); });
     }
 
     const settingsModal = new SettingsModal();
-    settingsBtn.addEventListener('click', () => { settingsModal.setModal(); });
+    settingsOpenBtn.addEventListener('click', () => { settingsModal.setModal(); });
+    settingsCloseBtn.addEventListener('click', () => { settingsModal.setModal(); });
 
     const progress = document.querySelectorAll('.progress');
 
     for (let i = 0; i < progress.length; i += 1) {
       progress[i].addEventListener('input', function () {
-        const value = this.value;
+        const { value } = this;
         this.style.background = `linear-gradient(to right, var(--gold-dark) 0%, var(--gold-dark) ${value}%, var(--gold-light) ${value}%, var(--gold-light) 100%)`;
       });
     }

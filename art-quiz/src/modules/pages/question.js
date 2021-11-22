@@ -1,6 +1,5 @@
 import SUtils from '../services/storageUtils.js';
 import QuizModal from './quizModal.js';
-import Final from './final.js';
 
 class Question {
   constructor(answers) {
@@ -41,7 +40,9 @@ class Question {
       this.endQuiz();
     }
 
-    this.quizModal.setModal();
+    if (Object.keys(this.quizModal).length !== 0) {
+      this.quizModal.setModal();
+    }
   }
 
   showResult(answerEl) {

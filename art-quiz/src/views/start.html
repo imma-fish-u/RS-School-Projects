@@ -2,13 +2,12 @@
   <nav class="navbar">
     <div class="navbar__icon"></div>
     <p class="navbar__text">Settings</p>
-    <div class="navbar__icon"><i class="uit uit-multiply"></i></div>
+    <div class="navbar__icon" id="close-settings"><i class="uit uit-multiply"></i></div>
   </nav>
   <div class="settings__container">
       <p class="settings__text">Timer</p>
-      <div class="switch settings__switch">
-        <input type="radio" name="switch-timer" id="switch-off" checked>
-        <input type="radio" name="switch-timer" id="switch-on">
+      <div class="switch settings__switch settings__switch-timer">
+        <input type="checkbox" name="switch-music">
         <span class="toggle"></span>
       </div>
       <select name="timer" id="timer-select" class="settings__select-timer">
@@ -21,14 +20,13 @@
       </select>
 
       <p class="settings__text">Music</p>
-      <div class="switch settings__switch">
-        <input type="radio" name="switch-music" id="switch-off" checked>
-        <input type="radio" name="switch-music" id="switch-on">
+      <div class="switch settings__switch settings__switch-music">
+        <input type="checkbox" name="switch-music">
         <span class="toggle"></span>
       </div> 
       <div class="settings__music">
         <i class="uil uil-volume-mute"></i>
-        <input type="range" min="0" max="100" value="35" class="progress progress__music"> 
+        <input type="range" min="0" max="100" value="35" class="progress progress__music" id="progress-music"> 
       </div>
     </div>
 </header>

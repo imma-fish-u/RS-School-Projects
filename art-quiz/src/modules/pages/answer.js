@@ -45,8 +45,12 @@ class Answer {
   }
 
   isAnswerCorrect(checkedElement) {
-    const authorEl = checkedElement.childNodes[1];
-    this.isCorrect = (authorEl.textContent === this.correctAnswer);
+    if (checkedElement) {
+      const authorEl = checkedElement.childNodes[1];
+      this.isCorrect = (authorEl.textContent === this.correctAnswer);
+    } else {
+      this.isCorrect = false;
+    }
   }
 }
 

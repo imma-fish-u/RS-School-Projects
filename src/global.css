@@ -36,18 +36,38 @@ header h1 {
 footer {
     height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    column-gap: 3rem;
 }
-footer .copyright {
+
+.rs-school {
+    display: flex;
+    align-items: center;
+    column-gap: 3rem;
+}
+
+.rs-school-logo {
+    display: block;
+    width: 7.6rem;
+    height: 2.9rem;
+    background-image: url(./assets/rs_school_js.svg);
+}
+
+footer .copyright,
+.rs-school span {
+    display: block;
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
+footer .copyright a,
+.rs-school a {
     color: #444;
 }
-footer .copyright a:hover {
+footer .copyright a:hover,
+.rs-school a:hover {
     color: #555;
 }
 footer .copyright:before {

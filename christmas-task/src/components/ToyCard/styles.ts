@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import {
 	tertiaryTextColor,
 	containerGradient,
@@ -8,14 +7,13 @@ import {
 	backgroundColor,
 } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
-import { ProgressPlugin } from 'webpack'
 
-export const StyledLink = styled(Link)`
+export const ToyBlock = styled.button`
 	width: 100%;
 	display: inline-block;
 	background: ${containerGradient};
 	border-radius: 1rem;
-	text-decoration: none;
+	border: 0px;
 `
 
 export const Img = styled.img`

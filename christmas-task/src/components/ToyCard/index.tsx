@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react'
 import { Toy } from 'types'
 import {
-	StyledLink,
+	ToyBlock,
 	Img,
 	Title,
 	Details,
-	Description,
-	Favorite
+	Description
 } from './styles'
 
 interface Props {
@@ -15,10 +14,10 @@ interface Props {
 
 const ToyCard = ({ content }: Props): ReactElement => {
 	const { num, name, count, year, shape, color, size, favorite } = content
-	const link = `/game/${num}`
+	const favoriteText = (favorite) ? 'да' : 'нет'
 
 	return (
-		<StyledLink to={link}>
+		<ToyBlock>
 			<Img alt={name} src={`assets/toys/${num}.png`} />
 			<Details>
 				<Title>{name}</Title>
@@ -27,9 +26,9 @@ const ToyCard = ({ content }: Props): ReactElement => {
 				<Description>Форма: {shape}</Description>
 				<Description>Цвет: {color}</Description>
 				<Description>Размер: {size}</Description>
-				<Favorite className="uim uim-star"></Favorite>
+				<Description>Любимая: {favoriteText}</Description>
 			</Details>
-		</StyledLink>
+		</ToyBlock>
 	)
 }
 

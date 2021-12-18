@@ -17,7 +17,7 @@ export const ToyBlock = styled.button`
 `
 
 export const Img = styled.img`
-	width: 100%;
+	width: 50%;
 `
 
 export const Title = styled.h2`

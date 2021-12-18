@@ -9,11 +9,12 @@ interface Props {
 const ToyFilter = ({ onChange }: Props): ReactElement => (
 	<Form onChange={onChange}>
 		<Container>
-			<p>Форма</p>
+			<p>Форма:</p>
 			{SHAPES.map(shapes => (
-				<ShapeCheckbox key={shapes.value} backgroundImage={shapes.display}>
-					<Checkbox name="shape" value={shapes.value}/>
-				</ShapeCheckbox>
+				<>
+					<Checkbox name="shape" id={shapes.value} value={shapes.value}/>
+					<ShapeCheckbox key={shapes.value} htmlFor={shapes.value} backgroundImage={shapes.display} className='checkboxLabel'></ShapeCheckbox>
+				</>
 			))}
 		</Container>
 	</Form>

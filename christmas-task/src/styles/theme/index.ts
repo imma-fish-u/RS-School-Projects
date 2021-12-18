@@ -1,5 +1,5 @@
-export const primaryColor = '#272b30'
-export const secondaryColor = '#32383e'
+export const primaryColor = 'hsl(150deg 28% 35%)'
+export const secondaryColor = 'hsl(120deg 28% 37%)'
 
 export const primaryTextColor = 'hsl(14deg 4% 85%)'
 export const secondaryTextColor = 'hsl(14deg 4% 70%)'

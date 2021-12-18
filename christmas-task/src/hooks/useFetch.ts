@@ -11,17 +11,6 @@ const useFetch = (): Response => {
 	const [toys, setToys] = useState<Toy[]>([])
 	const [err, setErr] = useState<string>('')
 
-  // const filterByParameter = (toys: Toy[]) => {
-  //   let filteredToys = toys
-  //   Object.entries(filter).forEach(([key, value]) => {
-  //     const values = value?.split('&')
-  //     filteredToys = filteredToys.filter(toy => values?.includes(toy[key]))
-  //   })
-    
-  //   setToys(filteredToys)
-  //   console.log(toys)
-  // }
-
 	useEffect(() => {
     const fetchData = async () => {
       try {

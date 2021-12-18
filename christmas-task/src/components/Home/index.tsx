@@ -9,29 +9,35 @@ import { Filter } from 'components/Home/types'
 const Home = (): ReactElement => {
 	const [filter, setFilter] = useState<Filter>({})
 	const { toys, error } = useFetch()
-	const filteredToys = useFilter(filter, toys)
+
+	const setFilterState = (filter: Filter, el: HTMLFormElement): Filter => {	
+		const arr = {...filter} as Filter;
+		const hasFilterType = Object.keys(arr).includes(el.name)
+
+		if (hasFilterType)  { //condition 2: at least 1 filter of this type is chosen 
+			(el.checked) ? arr[el.name] += `&${el.value}` : arr[el.name] = arr[el.name].replace(el.value, '') //add new value : delete existed value 
+		} else { //condition 1:  first filter of this type is chosen
+			(el.checked) ? arr[el.name] = el.value : delete arr[el.name]
+		}
+
+		return arr;
+	}
 
 	const onFilterChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
-		setFilter(current => {
-			const el = event.target;		
-			const hasFilterType = Object.keys(current).includes(el.name)
-
-			if (hasFilterType)  { //condition 2: at least 1 filter of this type is chosen 
-				(el.checked) ? current[el.name] += `&${el.value}` : current[el.name]?.replace(el.value, '') //add new value : delete existed value 
-			} else { //condition 1:  first filter of this type is chosen
-				(el.checked) ? current[el.name] = el.value : delete current[el.name]
-			}
-
-			return current
-		}) 
-		console.log(filter)
+		setFilter((filter) => (setFilterState(filter, event.target)))
+		/*setFilter(current => ({
+			...current,
+			[event.target.name]: event.target.value,
+		}))*/
 		event.preventDefault()
 	}, [])
 	
+	console.log(filter)
+
 	return (
 		<main>
 			<ToyFilter onChange={onFilterChange} />
-			<ToyList error={error} toys={filteredToys} />
+			<ToyList error={error} filter={filter} toys={toys} />
 		</main>
 	)
 }

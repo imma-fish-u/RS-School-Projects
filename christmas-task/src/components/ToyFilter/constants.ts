@@ -1,23 +1,23 @@
 export const SHAPES = [
 	{
 		value: 'шар',
-		display: 'assets/svg/ball.svg',
+		display: 'ball.svg',
 	},
 	{
 		value: 'колокольчик',
-		display: 'assets/svg/bell.svg',
+		display: 'bell.svg',
 	},
 	{
 		value: 'шишка',
-		display: 'assets/svg/cone.svg',
+		display: 'cone.svg',
 	},
 	{
 		value: 'снежинка',
-		display: 'assets/svg/snowflake.svg',
+		display: 'snowflake.svg',
 	},
 	{
 		value: 'фигурка',
-		display: 'assets/svg/toy.svg',
+		display: 'toy.svg',
 	},
 ]
 

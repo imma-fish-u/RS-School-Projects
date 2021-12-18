@@ -18,7 +18,7 @@ const ToyCard = ({ content }: Props): ReactElement => {
 
 	return (
 		<ToyBlock>
-			<Img alt={name} src={`assets/toys/${num}.png`} />
+			<Img alt={name} src={require(`/src/assets/toys/${num}.png`)} />
 			<Details>
 				<Title>{name}</Title>
 				<Description>Количество: {count}</Description>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { primaryColor, primaryTextColor } from 'styles/theme'
+import { containerGradient, primaryTextColor } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
 export const Form = styled.form`
@@ -22,6 +22,17 @@ export const Form = styled.form`
 `
 
 export const Container = styled.div`
+	margin: 1rem 0;
+	padding: 1rem;
+	background: ${containerGradient};
+	border-radius: 1rem;
+`
+
+export const Title = styled.p`
+	font-size: 24px;
+`
+
+export const FilterContainer = styled.div`
 	display: flex;
 	align-items: center;
 	column-gap: 1rem;
@@ -50,23 +61,61 @@ export const Checkbox = styled.input.attrs((props) => ({
 }))`
 	display:none;
 
-	&:checked + .checkboxLabel {
+	&:checked + .shape,
+	&:checked + .size {
 		filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
 			322deg) brightness(83%) contrast(88%);
 	}
+
+	&:checked + .color {
+		width: 46px;
+		height: 46px;
+		border: 1px solid black;
+	}
 `
-export const ShapeCheckbox = styled.label`
+export const LabelCheckbox = styled.label`
 	width: 40px;
 	height: 40px;
 	margin: 10px 7px;
-	background-image: url(${props => require('/src/assets/svg/' + props.backgroundImage)});
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
 	cursor: pointer;
 	transition: .3s;
 
-	&:hover {
+	&.shape,
+	&.size { 
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	&.shape {
+		background-image: url(${props => 
+			(props.display.includes('svg')) ? 
+			require('/src/assets/svg/' + props.display)
+			: 'none'});
+	}
+
+	&.color {
+		background-color: ${props => props.display};
+		border-radius: 4px;
+	}
+
+	&.size {
+		background-image: url(${require('/src/assets/svg/ball.svg')}); 
+		background-size: ${props => props.display};
+	}
+
+	&.size:first-of-type {
+		width: 50px;
+    height: 50px;
+	}
+
+	&.color:hover {
+		width: 46px;
+		height: 46px;
+	}
+
+	&.shape:hover,
+	&.size:hover {
 		filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
 			322deg) brightness(83%) contrast(88%);
 	}

@@ -1,6 +1,7 @@
 import React, { ChangeEvent, ReactElement } from 'react'
 import { SHAPES, COLORS, SIZES, SORT_BY } from './constants'
-import { Form, Container, ShapeCheckbox, Checkbox } from './styles'
+import FilterItem from './filterItem'
+import { Form, Container, Title } from './styles'
 
 interface Props {
 	onChange: (e: ChangeEvent<HTMLFormElement>) => void
@@ -9,14 +10,12 @@ interface Props {
 const ToyFilter = ({ onChange }: Props): ReactElement => (
 	<Form onChange={onChange}>
 		<Container>
-			<p>Форма:</p>
-			{SHAPES.map(shapes => (
-				<>
-					<Checkbox name="shape" id={shapes.value} value={shapes.value}/>
-					<ShapeCheckbox key={shapes.value} htmlFor={shapes.value} backgroundImage={shapes.display} className='checkboxLabel'></ShapeCheckbox>
-				</>
-			))}
+			<Title>ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</Title>
+			<FilterItem title="Форма:" name="shape" data={SHAPES} />
+			<FilterItem title="Цвет:" name="color" data={COLORS} />
+			<FilterItem title="Размер:" name="size" data={SIZES} />
 		</Container>
+		
 	</Form>
 )
 

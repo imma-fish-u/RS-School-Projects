@@ -13,6 +13,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     background: ${backgroundGradient};
   }
+  button {
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+  }
 `
 
 export default GlobalStyles

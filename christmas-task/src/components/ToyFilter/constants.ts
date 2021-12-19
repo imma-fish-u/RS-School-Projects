@@ -61,19 +61,19 @@ export const SIZES = [
 
 export const SORT_BY = [
 	{
-		value: 'relevance',
-		display: 'Relevance',
+		value: 'alphabetical-A-Z',
+		display: 'По названию от «А» до «Я»',
 	},
 	{
-		value: 'popularity',
-		display: 'Popularity',
+		value: 'alphabetical-Z-A',
+		display: 'По названию от «Я» до «А»',
 	},
 	{
-		value: 'release-date',
-		display: 'Release Date',
+		value: 'count-ASC',
+		display: 'По количеству по возрастанию',
 	},
 	{
-		value: 'alphabetical',
-		display: 'Alphabetical',
+		value: 'count-DESC',
+		display: 'По количеству по убыванию',
 	},
 ]

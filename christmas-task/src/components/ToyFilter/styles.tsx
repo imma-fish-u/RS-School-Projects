@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { containerGradient, primaryTextColor } from 'styles/theme'
+import { containerGradient, secondaryColor, primaryTextColor } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
 export const Form = styled.form`
@@ -22,6 +22,8 @@ export const Form = styled.form`
 `
 
 export const Container = styled.div`
+	display: flex;
+	flex-direction: column;
 	margin: 1rem 0;
 	padding: 1rem;
 	background: ${containerGradient};
@@ -30,6 +32,7 @@ export const Container = styled.div`
 
 export const Title = styled.p`
 	font-size: 24px;
+	text-transform: uppercase;
 `
 
 export const FilterContainer = styled.div`
@@ -38,22 +41,20 @@ export const FilterContainer = styled.div`
 	column-gap: 1rem;
 `
 
-export const LabelSelect = styled.label`
-	display: inline-block;
-	margin-right: 16px;
-	flex-basis: 25%;
-
-	&:last-of-type {
-		margin-right: 0;
-	}
+export const Select = styled.select`
+	width: 100%;
+	height: 34px;
+	color: white;
+	background-color: ${secondaryColor};
 `
 
-// export const Select = styled.select`
-// 	width: 100%;
-// 	margin-top: 8px;
-// 	color: white;
-// 	background-color: ${backgroundColor};
-// `
+export const ButtonReset = styled.button`
+	width: 100%;
+	height: 40px;
+	margin-top: 4rem;
+	background-color: ${primaryTextColor};
+	border-radius: 20px;
+`
 
 export const Checkbox = styled.input.attrs((props) => ({
 	type: "checkbox",

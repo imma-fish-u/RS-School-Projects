@@ -73,6 +73,16 @@ export const Checkbox = styled.input.attrs((props) => ({
 		border: 1px solid black;
 	}
 `
+
+export const FavoriteCheckbox = styled.input.attrs(() => ({
+	type: "checkbox",
+}))`
+	width: 20px;
+	height: 20px;
+	margin: 7px;
+	cursor: pointer;
+`
+
 export const LabelCheckbox = styled.label`
 	width: 40px;
 	height: 40px;

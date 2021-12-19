@@ -7,8 +7,12 @@ const useFilter = (filter: Filter, toys: Toy[]) => {
 
   const memoFiltered = useMemo(() => {
 		Object.entries(filter).forEach(([key, value]) => {
-			const values = value?.split('&')
-			filteredToys = filteredToys.filter(toy => values?.includes(toy[key]))
+			if (typeof value === 'string') {
+				const values = value?.split('&')
+				filteredToys = filteredToys.filter(toy => values?.includes(toy[key]))
+			} else if (typeof value === 'boolean') {
+				filteredToys = filteredToys.filter(toy => value === toy[key])
+			}
 		})
 		return filteredToys;
 	}, [filter, filteredToys])

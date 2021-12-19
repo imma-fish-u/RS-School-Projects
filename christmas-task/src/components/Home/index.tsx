@@ -1,6 +1,5 @@
 import React, { ChangeEvent, ReactElement, useState, useCallback, useEffect } from 'react'
 import useFetch from 'hooks/useFetch'
-import useFilter from 'hooks/useFilter'
 import ToyFilter from 'components/ToyFilter'
 import ToyList from 'components/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
@@ -14,21 +13,29 @@ const Home = (): ReactElement => {
 		const arr = {...filter} as Filter;
 		const hasFilterType = Object.keys(arr).includes(el.name)
 
-		if (hasFilterType)  { //condition 2: at least 1 filter of this type is chosen 
-			(el.checked) ? arr[el.name] += `&${el.value}` : arr[el.name] = arr[el.name].replace(el.value, '') //add new value : delete existed value 
-		} else { //condition 1:  first filter of this type is chosen
-			(el.checked) ? arr[el.name] = el.value : delete arr[el.name]
+		if (el.id === 'favorite') {
+			return {...arr, [el.name]: el.checked}
+		}
+		
+		if (el.checked) {
+			(hasFilterType) ? 
+				arr[el.name] += `&${el.value}` //add new value in existed filter
+				: 
+				arr[el.name] = el.value //add new filter
+		} else {
+			if ((arr[el.name] as string)?.includes('&')) {
+				const re = new RegExp(`&?${el.value}`);
+				arr[el.name] = (arr[el.name] as string)?.replace(re, '') //delete 1 value from filter with multiple values
+			} else {
+				delete arr[el.name] //delete filter (when it was only 1 value in it)
+			}
 		}
 
-		return arr;
+		return arr
 	}
 
 	const onFilterChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
 		setFilter((filter) => (setFilterState(filter, event.target)))
-		/*setFilter(current => ({
-			...current,
-			[event.target.name]: event.target.value,
-		}))*/
 		event.preventDefault()
 	}, [])
 	

@@ -1,3 +1,7 @@
 export type Filter = {
-	[key: string]: string | undefined
+	[key: string]: string | boolean | undefined
+	// shape: string
+	// color: string
+	// size: string
+	// favorite: boolean
 }

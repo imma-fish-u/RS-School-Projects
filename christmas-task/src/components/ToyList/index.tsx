@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ChangeEvent, ReactElement} from 'react'
 import { Toy } from 'types'
 import ToyCard from 'components/ToyCard'
 import { List, ListItem } from './styles'
@@ -10,9 +10,10 @@ interface Props {
 	filter: Filter
 	sort: Sort
 	toys: Toy[]
+	onClick: (e: ChangeEvent<HTMLElement>) => void
 }
 
-const ToyList = ({ error, filter, sort, toys }: Props): ReactElement => {
+const ToyList = ({ onClick, error, filter, sort, toys }: Props): ReactElement => {
 	const sortedToys: Toy[] = useSort(sort, toys)
 	const filteredToys: Toy[] = useFilter(filter, sortedToys)
 
@@ -20,7 +21,7 @@ const ToyList = ({ error, filter, sort, toys }: Props): ReactElement => {
 		console.log(error)
 		return <p>Unable to fetch toys</p>
 	}
-	if (!toys?.length) {
+	if (!filteredToys?.length) {
 		return <p>No toys available</p>
 	}
 
@@ -28,7 +29,7 @@ const ToyList = ({ error, filter, sort, toys }: Props): ReactElement => {
 		<List>
 			{filteredToys.map(toy => (
 				<ListItem key={toy.num}>
-					<ToyCard content={toy} />
+					<ToyCard content={toy} onClick={onClick}/>
 				</ListItem>
 			))}
 		</List>

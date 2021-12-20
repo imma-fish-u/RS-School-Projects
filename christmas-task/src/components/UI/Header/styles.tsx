@@ -60,10 +60,12 @@ export const Search = styled.input.attrs(() => ({
 `
 
 export const TotalCount = styled.span`
+  display: flex;
+  justify-content: center;
+  width: 22px;
   margin-top: 11px;
   margin-left: 6.7px;
   padding: 2px;
-  text-align: center;
   font-size: 20px;
   background-color: ${secondaryColor};
   border-radius: 50%;

@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 import {
-	tertiaryTextColor,
 	containerGradient,
+	secondaryColor,
 	primaryTextColor,
-	secondaryTextColor,
-	backgroundColor,
+	secondaryTextColor
 } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
@@ -14,6 +13,11 @@ export const ToyBlock = styled.button`
 	background: ${containerGradient};
 	border-radius: 1rem;
 	border: 0px;
+
+	&.active {
+		background: hsl(120deg 28% 27%);
+		transform: scale(1.02);
+	}
 `
 
 export const Img = styled.img`
@@ -48,20 +52,4 @@ export const Description = styled.p`
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-`
-
-export const Favorite = styled.i`
-	font-size: 1rem;
-	margin-right: 8px;
-`
-
-export const Genre = styled.p`
-	padding: 2px 4px;
-	margin: 0 8px 0 0;
-	border-radius: 4px;
-	font-size: 12px;
-	font-weight: bold;
-	color: ${tertiaryTextColor};
-	background-color: ${backgroundColor};
-	float: right;
 `

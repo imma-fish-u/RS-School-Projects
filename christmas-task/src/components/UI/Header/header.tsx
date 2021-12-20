@@ -1,7 +1,11 @@
 import React, { ReactElement } from 'react'
 import { HeaderContainer, Container, Link, Search, Icon, TotalCount} from './styles'
 
-const Header = (): ReactElement => {
+interface Props {
+	picked: number
+}
+
+const Header = ({ picked }: Props): ReactElement => {
 
 	return (
     <HeaderContainer>
@@ -14,7 +18,7 @@ const Header = (): ReactElement => {
         <div>
           <Search />
           <Icon className="header-toy-icon">
-            <TotalCount>10</TotalCount>
+            <TotalCount>{picked}</TotalCount>
           </Icon>
         </div>
       </Container>

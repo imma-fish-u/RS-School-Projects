@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ChangeEvent, ReactElement } from 'react'
 import { Toy } from 'types'
 import {
 	ToyBlock,
@@ -10,14 +10,15 @@ import {
 
 interface Props {
 	content: Toy
+	onClick: (e: ChangeEvent<HTMLElement>) => void
 }
 
-const ToyCard = ({ content }: Props): ReactElement => {
+const ToyCard = ({ content, onClick }: Props): ReactElement => {
 	const { num, name, count, year, shape, color, size, favorite } = content
 	const favoriteText = (favorite) ? 'да' : 'нет'
 
 	return (
-		<ToyBlock>
+		<ToyBlock id={`toy-${num}`} onClick={onClick}>
 			<Img alt={name} src={require(`/src/assets/toys/${num}.png`)} />
 			<Details>
 				<Title>{name}</Title>

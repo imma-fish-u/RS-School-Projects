@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { containerGradient, secondaryColor, primaryTextColor } from 'styles/theme'
+import { containerGradient, secondaryColor, primaryTextColor, secondaryTextColor } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
 export const Form = styled.form`
@@ -48,12 +48,16 @@ export const Select = styled.select`
 	background-color: ${secondaryColor};
 `
 
-export const ButtonReset = styled.button`
+export const Button = styled.button`
 	width: 100%;
 	height: 40px;
 	margin-top: 4rem;
 	background-color: ${primaryTextColor};
 	border-radius: 20px;
+
+	&:hover {
+		background-color: ${secondaryTextColor};
+	}
 `
 
 export const Checkbox = styled.input.attrs((props) => ({

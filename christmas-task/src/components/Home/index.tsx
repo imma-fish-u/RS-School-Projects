@@ -5,10 +5,17 @@ import ToyList from 'components/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
 import { Filter, Sort } from 'components/Home/types'
 
-const Home = (): ReactElement => {
+const Home = (): ReactElement => {	
 	const [filter, setFilter] = useState<Filter>({})
+	const [filterElements, setFilterElements] = useState<NodeListOf<HTMLElement>>()
 	const [sort, setSort] = useState<Sort>({})
 	const { toys, error } = useFetch()
+	let checkboxesInitial: NodeListOf<HTMLElement>
+
+	useEffect(() => {
+		checkboxesInitial = document.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLElement>
+		setFilterElements(checkboxesInitial)
+	}, [])
 
 	const setFilterState = (filter: Filter, el: HTMLFormElement): Filter => {	
 		const arr = {...filter} as Filter;
@@ -35,18 +42,19 @@ const Home = (): ReactElement => {
 		return arr
 	}
 
-	const onFilterChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
+	const onFormChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
 		const el = event.target as HTMLFormElement
 		const parent = (el.parentNode as HTMLElement);
 		 
 		if (parent.className.includes('filter')) {
 			setFilter((filter) => (setFilterState(filter, el)))
-		}
-		else if (el.id === 'sort') {
+		} else if (el.id === 'sort') {
 			const [field, rule] = el.value.split(' ')
 			setSort(() => ({ 'rule': rule, 'field': field }))
+		} else if (el.className.includes('reset')) {
+			setFilter(() => ({}))
+			setFilterElements(checkboxesInitial)
 		}
-		event.preventDefault()
 	}, [])
 	
 	console.log(filter)
@@ -54,10 +62,12 @@ const Home = (): ReactElement => {
 
 	return (
 		<main>
-			<ToyFilter onChange={onFilterChange} />
+			<ToyFilter onChange={onFormChange} />
 			<ToyList error={error} filter={filter} toys={toys} sort={sort}/>
 		</main>
 	)
 }
 
 export default withErrorBoundary(Home)
+
+

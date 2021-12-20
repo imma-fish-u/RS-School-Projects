@@ -21,9 +21,10 @@ const ToyFilter = ({ onChange }: Props): ReactElement => (
 		
 		<Container>
 			<Title>Сортировка</Title>
-			<Select name="sort" id="sort-select">
-				{SORT_BY.map(sort => (
-					<option key={sort.value} value={sort.value}>
+			<Select name="sort" id="sort">
+				<option value="" selected disabled>Выбрать...</option>
+				{SORT_BY.map((sort, i) => (
+					<option key={`sort${i}`} value={`${sort.value} ${sort.rule}`}>
 						{sort.display}
 					</option>
 				))}

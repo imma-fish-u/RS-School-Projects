@@ -1,3 +1,5 @@
+import { SortBy } from "./types"
+
 export const SHAPES = [
 	{
 		value: 'шар',
@@ -61,19 +63,23 @@ export const SIZES = [
 
 export const SORT_BY = [
 	{
-		value: 'alphabetical-A-Z',
+		rule: SortBy.stringASC,
+		value: 'name',
 		display: 'По названию от «А» до «Я»',
 	},
 	{
-		value: 'alphabetical-Z-A',
+		rule: SortBy.stringDESC,
+		value: 'name',
 		display: 'По названию от «Я» до «А»',
 	},
 	{
-		value: 'count-ASC',
+		rule: SortBy.numberASC,
+		value: 'count',
 		display: 'По количеству по возрастанию',
 	},
 	{
-		value: 'count-DESC',
+		rule: SortBy.numberDESC,
+		value: 'count',
 		display: 'По количеству по убыванию',
 	},
 ]

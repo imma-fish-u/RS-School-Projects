@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { FilterContainer, LabelCheckbox, Checkbox } from './styles'
+import { FilterParams } from './types'
 
 interface Props {
 	title: string
@@ -7,13 +8,8 @@ interface Props {
   data: Array<FilterParams>
 }
 
-type FilterParams = {
-	value: string 
-  display: string 
-}
-
 const FilterItem = ({ title, name, data }: Props): ReactElement => (
-  <FilterContainer>
+  <FilterContainer className="filter">
     <p>{title}</p>
     {data.map(el => (
       <>

@@ -3,10 +3,11 @@ import useFetch from 'hooks/useFetch'
 import ToyFilter from 'components/ToyFilter'
 import ToyList from 'components/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
-import { Filter } from 'components/Home/types'
+import { Filter, Sort } from 'components/Home/types'
 
 const Home = (): ReactElement => {
 	const [filter, setFilter] = useState<Filter>({})
+	const [sort, setSort] = useState<Sort>({})
 	const { toys, error } = useFetch()
 
 	const setFilterState = (filter: Filter, el: HTMLFormElement): Filter => {	
@@ -35,16 +36,26 @@ const Home = (): ReactElement => {
 	}
 
 	const onFilterChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
-		setFilter((filter) => (setFilterState(filter, event.target)))
+		const el = event.target as HTMLFormElement
+		const parent = (el.parentNode as HTMLElement);
+		 
+		if (parent.className.includes('filter')) {
+			setFilter((filter) => (setFilterState(filter, el)))
+		}
+		else if (el.id === 'sort') {
+			const [field, rule] = el.value.split(' ')
+			setSort(() => ({ 'rule': rule, 'field': field }))
+		}
 		event.preventDefault()
 	}, [])
 	
 	console.log(filter)
+	console.log(sort)
 
 	return (
 		<main>
 			<ToyFilter onChange={onFilterChange} />
-			<ToyList error={error} filter={filter} toys={toys} />
+			<ToyList error={error} filter={filter} toys={toys} sort={sort}/>
 		</main>
 	)
 }

@@ -2,17 +2,19 @@ import React, { ReactElement, useState } from 'react'
 import { Toy } from 'types'
 import ToyCard from 'components/ToyCard'
 import { List, ListItem } from './styles'
-import useFilter from 'hooks/useFilter'
-import { Filter } from 'components/Home/types'
+import { useFilter, useSort } from 'hooks/useFilter'
+import { Filter, Sort } from 'components/Home/types'
 
 interface Props {
 	error?: string
 	filter: Filter
+	sort: Sort
 	toys: Toy[]
 }
 
-const ToyList = ({ error, filter, toys }: Props): ReactElement => {
-	const filteredToys = useFilter(filter, toys)
+const ToyList = ({ error, filter, sort, toys }: Props): ReactElement => {
+	const sortedToys: Toy[] = useSort(sort, toys)
+	const filteredToys: Toy[] = useFilter(filter, sortedToys)
 
 	if (error) {
 		console.log(error)

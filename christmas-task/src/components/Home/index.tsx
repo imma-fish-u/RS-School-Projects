@@ -4,6 +4,7 @@ import ToyFilter from 'components/ToyFilter'
 import ToyList from 'components/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
 import { Filter, Sort } from 'components/Home/types'
+import Header from 'components/UI/Header/header'
 
 const Home = (): ReactElement => {	
 	const [filter, setFilter] = useState<Filter>({})
@@ -61,10 +62,13 @@ const Home = (): ReactElement => {
 	console.log(sort)
 
 	return (
-		<main>
-			<ToyFilter onChange={onFormChange} />
-			<ToyList error={error} filter={filter} toys={toys} sort={sort}/>
-		</main>
+		<>
+			<Header />
+			<main>
+				<ToyFilter onChange={onFormChange} />
+				<ToyList error={error} filter={filter} toys={toys} sort={sort}/>
+			</main>
+		</>
 	)
 }
 

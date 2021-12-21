@@ -1,9 +1,9 @@
 import React, { ChangeEvent, ReactElement, useState, useCallback, useEffect } from 'react'
 import useFetch from 'hooks/useFetch'
-import ToyFilter from 'components/ToyFilter'
-import ToyList from 'components/ToyList'
+import ToyFilter from 'components/Pages/Toy/ToyFilter'
+import ToyList from 'components/Pages/Toy/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
-import { Filter, Sort } from 'components/Home/types'
+import { Filter, Sort } from 'components/Pages/Toy/types'
 import Header from 'components/UI/Header/header'
 
 const Home = (): ReactElement => {	

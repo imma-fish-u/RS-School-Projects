@@ -1,9 +1,9 @@
 import React, { ChangeEvent, ReactElement} from 'react'
 import { Toy } from 'types'
-import ToyCard from 'components/ToyCard'
+import ToyCard from 'components/Pages/Toy/ToyCard'
 import { List, ListItem } from './styles'
 import { useFilter, useSort } from 'hooks/useFilter'
-import { Filter, Sort } from 'components/Home/types'
+import { Filter, Sort } from 'components/Pages/Toy/types'
 
 interface Props {
 	error?: string

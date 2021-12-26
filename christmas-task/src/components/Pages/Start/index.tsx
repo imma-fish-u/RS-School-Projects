@@ -1,10 +1,13 @@
 import React, { ReactElement} from 'react'
-import { StyledLink } from './styles'
+import { Container, Title, StyledLink } from './styles'
 
 const Start = (): ReactElement => {
 
 	return (
-		<StyledLink to="/toy">Начать игру</StyledLink>
+		<Container>
+			<Title>Новогодняя игра «Наряди ёлку»</Title>
+			<StyledLink to="/toy">Начать игру</StyledLink>
+		</Container>
 	)
 }
 

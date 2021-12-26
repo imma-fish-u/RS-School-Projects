@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { HeaderContainer, Container, Link, Search, Icon, TotalCount} from './styles'
+import { HeaderContainer, Container, StyledLink, Search, Icon, TotalCount} from './styles'
 
 interface Props {
 	picked: number
@@ -12,8 +12,8 @@ const Header = ({ picked }: Props): ReactElement => {
       <Container>
         <div>
           <Icon className="header-tree-icon"></Icon>
-          <Link href="#">Игрушки</Link>
-          <Link href="#">Ёлка</Link>
+          <StyledLink to="/toy">Игрушки</StyledLink>
+          <StyledLink to="/tree">Ёлка</StyledLink>
         </div>
         <div>
           <Search />

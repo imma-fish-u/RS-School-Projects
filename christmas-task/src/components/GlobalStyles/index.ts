@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { backgroundGradient, primaryTextColor, secondaryTextColor } from 'styles/theme'
+import { backgroundGradient, primaryTextColor } from 'styles/theme'
 import { fontFamily } from 'styles/fonts'
 
 const GlobalStyles = createGlobalStyle`
@@ -24,9 +24,6 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: ${primaryTextColor};
     text-decoration: none;
-  }
-  a:hover {
-    color: ${secondaryTextColor};
   }
   input[type="search" i]::-webkit-search-cancel-button {
     opacity: 0;

@@ -11,7 +11,9 @@ const Header = ({ picked }: Props): ReactElement => {
     <HeaderContainer>
       <Container>
         <div>
-          <Icon className="header-tree-icon"></Icon>
+          <StyledLink to="/">
+            <Icon className="header-tree-icon"></Icon>
+          </StyledLink>
           <StyledLink to="/toy">Игрушки</StyledLink>
           <StyledLink to="/tree">Ёлка</StyledLink>
         </div>

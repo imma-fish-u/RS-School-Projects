@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { darkColor, primaryTextColor, secondaryColor } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
@@ -45,7 +46,7 @@ export const Icon = styled.div`
     background-image: url(${require('/src/assets/svg/ball-2.svg')});
   }
 `
-export const Link = styled.a`
+export const StyledLink = styled(Link)`
   font-size: 20px;
 `
 

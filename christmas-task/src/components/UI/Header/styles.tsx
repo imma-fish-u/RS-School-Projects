@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { darkColor, primaryTextColor, secondaryColor } from 'styles/theme'
+import { Link } from 'react-router-dom'
+import { darkColor, primaryTextColor, secondaryColor, secondaryTextColor } from 'styles/theme'
 import { breakpoints } from 'styles/breakpoints'
 
 export const HeaderContainer = styled.header`
@@ -45,8 +46,13 @@ export const Icon = styled.div`
     background-image: url(${require('/src/assets/svg/ball-2.svg')});
   }
 `
-export const Link = styled.a`
+export const StyledLink = styled(Link)`
   font-size: 20px;
+  
+  &:hover {
+    filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
+			322deg) brightness(83%) contrast(88%);
+  }
 `
 
 export const Search = styled.input.attrs(() => ({

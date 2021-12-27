@@ -1,21 +1,20 @@
 import React, { ChangeEvent, ReactElement, useState, useCallback, useEffect } from 'react'
 import useFetch from 'hooks/useFetch'
-import ToyFilter from 'components/ToyFilter'
-import ToyList from 'components/ToyList'
+import ToyFilter from 'components/Pages/Toy/ToyFilter'
+import ToyList from 'components/Pages/Toy/ToyList'
 import withErrorBoundary from 'hoc/withErrorBoundary'
-import { Filter, Sort } from 'components/Home/types'
-import Header from 'components/UI/Header/header'
+import { Filter, Sort } from 'components/Pages/Toy/types'
 
-const Home = (): ReactElement => {	
+interface Props {
+	onCardClicked: (e: ChangeEvent<HTMLElement>) => void
+}
+
+const Toy = ({ onCardClicked }: Props): ReactElement => {	
 	const [filter, setFilter] = useState<Filter>({})
 	const [filterElements, setFilterElements] = useState<NodeListOf<HTMLElement>>()
 	const [sort, setSort] = useState<Sort>({})
 	const { toys, error } = useFetch()
 	let checkboxesInitial: NodeListOf<HTMLElement>
-
-	const [picked, setPicked] = useState<number>(0)
-	const [pickedCards, setPickedCards] = useState<Array<number>>([])
-	let slotMessage = ''
 
 	useEffect(() => {
 		checkboxesInitial = document.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLElement>
@@ -62,46 +61,14 @@ const Home = (): ReactElement => {
 		}
 	}, [])
 
-	const setPickedState = (picked: number, el: HTMLElement): number => {
-		const toyId = el.id.slice(0, 4)
-
-		if (!el.classList.contains('active')) {
-			if (picked < 20) {
-				picked++
-				el.classList.add('active')
-				setPickedCards((pickedCards) => ([...pickedCards, Number(toyId)]))
-			} else {
-				slotMessage = 'Все слоты заполнены'
-			}
-		} else {
-			picked--
-			el.classList.remove('active')
-		}
-
-		return picked;
-	}
-
-	const onCardClicked = useCallback((event: ChangeEvent<HTMLElement>) => {
-		const el = event.currentTarget as HTMLElement
-		if (el.localName === 'button') {
-			setPicked((picked) => (setPickedState(picked, el)))
-		}
-	}, [])
-	
-	console.log(filter)
-	console.log(sort)
-
 	return (
-		<>
-			<Header picked={picked}/>
-			<main>
-				<ToyFilter onChange={onFormChange} />
-				<ToyList onClick={onCardClicked} error={error} filter={filter} toys={toys} sort={sort}/>
-			</main>
-		</>
+		<main>
+			<ToyFilter onChange={onFormChange} />
+			<ToyList onClick={onCardClicked} error={error} filter={filter} toys={toys} sort={sort}/>
+		</main>
 	)
 }
 
-export default withErrorBoundary(Home)
+export default withErrorBoundary(Toy)
 
 

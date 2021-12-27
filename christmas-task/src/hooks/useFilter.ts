@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Toy } from 'types'
-import { Filter, Sort } from 'components/Home/types'
-import { SortBy } from 'components/ToyFilter/types'
+import { Filter, Sort } from 'components/Pages/Toy/types'
+import { SortBy } from 'components/Pages/Toy/ToyFilter/types'
 
 export const useSort = (sort: Sort, toys: Toy[]) => {
 

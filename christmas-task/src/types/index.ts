@@ -8,3 +8,9 @@ export type Toy = {
 	size: string
 	favorite: boolean
 }
+
+export type PickedToy = {
+	num: number
+	count: number
+}
+

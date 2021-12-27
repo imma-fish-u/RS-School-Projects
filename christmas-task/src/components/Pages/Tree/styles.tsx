@@ -27,6 +27,13 @@ export const Button = styled.button`
 		filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
 			322deg) brightness(83%) contrast(88%);
 	}
+
+	${(props) => {
+		if (props.name === 'audio')
+			if (props.playing) return css`filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
+				322deg) brightness(83%) contrast(88%);`
+			else return css`filter: none;`
+	}}
 `
 
 export const Title = styled.p`

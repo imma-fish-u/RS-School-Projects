@@ -1,3 +1,4 @@
+import useAudio from 'hooks/useAudio'
 import useDraggable from 'hooks/useDraggable'
 import React, { ReactElement, useState} from 'react'
 import { PickedToy } from 'types'
@@ -14,6 +15,7 @@ const Tree = ({ pickedCards }: Props): ReactElement => {
 	const [activeToy, setActiveToy] = useState<string>('')
 	const { position } = useDraggable(activeToy)
 	const pickedToys: PickedToy[] = (pickedCards.length > 0) ? pickedCards : TOYS_DEFAULT
+	const [playing, toggle] = useAudio();
 
 	const copyItem = (id: number) => {
 		setActiveToy(`picked-toy-${id}`)
@@ -22,7 +24,7 @@ const Tree = ({ pickedCards }: Props): ReactElement => {
 	return (
 		<Container>
 			<Controls>
-				<Button name="audio"></Button>
+				<Button name="audio" onClick={toggle} value={playing}></Button>
 				<Button name="snowflake"></Button>
 				<Title>Выберите ёлку</Title>
 				<MenuContainer>

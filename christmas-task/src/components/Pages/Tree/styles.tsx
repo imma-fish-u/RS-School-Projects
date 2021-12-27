@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { containerGradient, darkColor, tertiaryColor } from 'styles/theme'
 
 export const Container = styled.div`
@@ -73,12 +73,17 @@ export const BgItem = styled(Img)`
 `
 
 export const ToyItem = styled(Img)`
-	transform: translateY(10px);
+	position: relative;
 	width: 60px;
 	height: 50px;
 	background-size: contain;
 	background-image: url(${(props) => require('/src/assets/toys/' + props.value + '.png')});
-	z-index: 0;
+	z-index: 10;
+`
+
+export const ToyItemCopy = styled(ToyItem)`
+	top: ${(props) => props.position.y};
+	left: ${(props) => props.position.x};
 `
 
 export const ToyTotal = styled.span`
@@ -88,7 +93,7 @@ export const ToyTotal = styled.span`
 	color: ${darkColor};
 	background-color: ${tertiaryColor};
 	border-radius: 50%;
-	z-index: 10;
+	z-index: 100;
 `
 
 export const BackgroundImg = styled(Img)`
@@ -101,8 +106,8 @@ export const BackgroundImg = styled(Img)`
 export const TreeImg = styled(Img)`
 	margin: 0 auto;
 	transform: translateY(10%);
-	width: 80%;
-	height: 90%;
+	width: 370px;
+  height: 90%;
 	background-size: contain;
 	background-image: url(${(props) => require('/src/assets/tree/' + props.value + '.png')});
 `

@@ -1,6 +1,6 @@
 export const primaryColor = 'hsl(150deg 28% 35%)'
 export const secondaryColor = 'hsl(120deg 28% 37%)'
-export const tertiararyColor = 'hsl(47deg 83% 50%)'
+export const tertiaryColor = 'rgb(202, 182, 124)'
 export const darkColor = 'hsl(120deg 28% 17%)'
 
 export const primaryTextColor = 'hsl(14deg 4% 90%)'

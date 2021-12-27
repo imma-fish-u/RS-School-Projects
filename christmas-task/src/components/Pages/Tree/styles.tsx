@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { containerGradient, tertiararyColor } from 'styles/theme'
+import { containerGradient, darkColor, tertiaryColor } from 'styles/theme'
 
 export const Container = styled.div`
 	display: grid;
@@ -68,15 +68,27 @@ export const BgItem = styled(Img)`
 	height: 40px;
 	background-size: cover;
 	background-image: url(${(props) => require('/src/assets/bg/' + props.value + '.jpg')});
-	border: 1px solid ${tertiararyColor};
+	border: 1px solid ${tertiaryColor};
 	border-radius: 4px;
 `
 
 export const ToyItem = styled(Img)`
-	width: 50px;
+	transform: translateY(10px);
+	width: 60px;
 	height: 50px;
 	background-size: contain;
 	background-image: url(${(props) => require('/src/assets/toys/' + props.value + '.png')});
+	z-index: 0;
+`
+
+export const ToyTotal = styled.span`
+	position: relative;
+	float: right;
+	padding: 3px 7px;
+	color: ${darkColor};
+	background-color: ${tertiaryColor};
+	border-radius: 50%;
+	z-index: 10;
 `
 
 export const BackgroundImg = styled(Img)`

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { containerGradient, buttonGradient, tertiararyColor } from 'styles/theme'
+import { containerGradient, buttonGradient } from 'styles/theme'
 
 export const Container = styled.div`
 	display: flex;
@@ -28,7 +28,6 @@ export const StyledLink = styled(Link)`
 	border-radius: 1.5rem;
 
 	&:hover {
-		transform: scale(1.02);
-		box-shadow: 2px 3px 6px ${tertiararyColor};
+		transform: scale(1.04);
 	}
 `

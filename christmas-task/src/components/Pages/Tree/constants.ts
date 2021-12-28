@@ -1,8 +1,10 @@
-export const AUDIO_URL = '/src/assets/audio/audio.mp3'
+export const GARLAND_TYPES = ['multicolor', ' red', 'blue', 'yellow', 'green']
 
-export const TREE_TOTAL = 6;
-export const BG_TOTAL = 10;
-export const TOY_TOTAL = 20;
+export const TREE_TOTAL = 6
+export const BG_TOTAL = 8
+export const TOY_TOTAL = 20
+export const LIGHT_TOTAL = 12
+export const GARLAND_TOTAL = 10
 
 export const TOYS_DEFAULT = [
   {

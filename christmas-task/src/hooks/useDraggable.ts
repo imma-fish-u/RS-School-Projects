@@ -1,9 +1,5 @@
+import { Position } from "components/Pages/Tree/types";
 import { useEffect, useState } from "react"
-
-interface Position {
-	x: number
-  y: number
-}
 
 const useDraggable = (activeToy: string) => {
   const [position, setPosition] = useState<Position>({x: 0, y: 0})
@@ -14,7 +10,7 @@ const useDraggable = (activeToy: string) => {
     handle?.addEventListener("mousedown", function(e) {
       e.preventDefault()
       handle.style.pointerEvents = "none"
-
+      console.log(handle)
       document.body.addEventListener("mousemove", move)
       document.body.addEventListener("mouseup", () => {
         document.body.removeEventListener("mousemove", move)

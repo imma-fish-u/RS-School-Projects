@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+
+  <!--==================== UNICONS ====================-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-container" id="nav-container">
+      <i class="uil uil-times nav-close-icon" id="nav-close"></i>
+      <div class="nav-settings nav-settings__language">
+        <div class="switch">
+          <div class="switch__1">
+            <input id="switch-lang" type="checkbox">
+            <label for="switch-lang"></label>
+          </div>
+        </div>
+        <span id="language-text">Language (EN/RU)</span>
+      </div>
+
+      <div class="nav-settings radio__settings">
+        <label class="radio" for="radio-api-1">
+          <input id="radio-api-1" class="radio-api" type="radio" name="settings" value="Github" checked>
+          <span class="dot"></span>
+          <p class="radio__text">Github</p>
+        </label>
+        
+        <label class="radio" for="radio-api-2">
+          <input id="radio-api-2" class="radio-api" type="radio" name="settings" value="Flickr">
+          <span class="dot"></span>
+          <p class="radio__text">Flickr</p>
+        </label>
+
+        <label class="radio" for="radio-api-3">
+          <input id="radio-api-3" class="radio-api" type="radio" name="settings" value="Unsplash">
+          <span class="dot"></span>
+          <p class="radio__text">Unsplash</p>
+        </label>
+      </div>
+
+      <div class="search">
+        <input type="text" class="search__input" id="api-search-photos" placeholder="Search...">
+        <div class="search__icon">
+          <i class="uil uil-search"></i>
+        </div>
+      </div>
+
+      <div class="checkbox nav-settings__checkbox">
+        <div class="checkbox__2">
+          <input id="hide-1" class="hide-ch" type="checkbox" value="1">
+          <label for="hide-1"><i class="uil uil-check"></i></label>
+          <p class="radio__text text-chb-hide">Utilities</p>
+        </div>
+
+      <div class="checkbox__2">
+        <input id="hide-2" class="hide-ch" type="checkbox" value="2">
+        <label for="hide-2"><i class="uil uil-check"></i></label>
+        <p class="radio__text text-chb-hide">Quote</p>
+      </div>
+
+      <div class="checkbox__2">
+        <input id="hide-3" class="hide-ch" type="checkbox" value="3">
+        <label for="hide-3"><i class="uil uil-check"></i></label>
+        <p class="radio__text text-chb-hide">Time</p>
+      </div>
+
+      <div class="checkbox__2">
+        <input id="hide-4" class="hide-ch" type="checkbox" value="4">
+        <label for="hide-4"><i class="uil uil-check"></i></label>
+        <p class="radio__text text-chb-hide">Date</p>
+      </div>
+
+      <div class="checkbox__2">
+        <input id="hide-5" class="hide-ch" type="checkbox" value="5">
+        <label for="hide-5"><i class="uil uil-check"></i></label>
+        <p class="radio__text text-chb-hide">Greeting</p>
+      </div>
+    </div>
+    </nav>
+    <div class="icon__settings menu" id="nav-toggle"><i class="uil uil-setting"></i></div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <div class="window" id="window">
+        <button class="slide-prev" id="slide-prev"><i class="uil uil-angle-left-b slider-icon"></i></button>
+        <div class="greeting-container">
+          <time class="time" id="time"></time>
+          <date class="date" id="date"></date>
+          <p class="greeting" id="greeting"></p>
+          <input type="text" class="name" id="name" placeholder="[Enter name]" autoComplete="off">
+        </div>
+        <button class="slide-next" id="slide-next"><i class="uil uil-angle-right-b slider-icon"></i></button>
+      </div>
+
+      <div class="quote-container" id="quote-container">
+        <div class="quote" id="quote"></div>
+        <div class="author" id="author"></div>
+        <button class="icon__settings change-quote" id="change-quote"><i class="uil uil-sync"></i></button>
+      </div>
+
+      <div class="utils" id="utils">
+        <div class="segmented-control">
+          <input type="radio" name="radio2" value="3" class="inp utils__active" id="tab-1" data-target="#player" checked/>
+          <label for="tab-1" class= "segmented-control__1">
+            <p class="segmented-control__text">Music</p></label>
+          
+          <input type="radio" name="radio2" value="4" id="tab-2" class="inp" data-target="#weather" />
+          <label for="tab-2" class= "segmented-control__2">
+            <p class="segmented-control__text">Weather</p></label>
+          
+          <input type="radio" name="radio2" value="5" id="tab-3" class="inp" data-target="#todo" />
+          <label for="tab-3" class= "segmented-control__3">
+            <p class="segmented-control__text">To Do</p></label>
+          
+          <div class="segmented-control__color"></div>
+        </div>
+        
+        <div class="player utils__active" data-content id="player">
+          <div class="player-controls">
+            <p class="curr-song-name" id="curr-song-name">Aqua Caelestis</p>
+
+            <audio src="./assets/sounds/Aqua.mp3" id="music" preload="metadata"></audio>
+
+            <div class="slider">
+              <div class="slider-container">
+                <div class="slider__duration-wrapper">
+                  <span id="current-time">0:00</span>
+                  <span id="duration">2:06</span>
+                </div>
+                <input type="range" value="31" min="0" max="100" step="1" class="slider__box progress-range progress-audio" id="progress-audio">
+              </div>
+              <div class="icon__settings volume-icon">
+                <input type="range" value="31" min="0" max="100" step="1" class="slider__box slider__volume progress-range progress-volume" id="progress-volume">
+                <i class="uil uil-volume" id="volume"></i></div>
+            </div>
+
+            <div class="player-nav">
+              <button class="play-prev player-icon" id="play-prev">
+                <i class="uil uil-backward"></i>
+              </button>
+
+              <div class="circle">
+                <span class="circle__btn" id="play">
+                  <i class="uil uil-play play"></i>
+                  <i class="uil uil-pause pause"></i>
+                </span>
+                <span class="circle__back-1"></span>
+                <span class="circle__back-2"></span>
+              </div>
+
+              <button class="play-next player-icon" id="play-next">
+                <i class="uil uil-forward"></i>
+              </button>
+            </div>
+
+            <ul class="song-list" id="song-list"></ul>
+          </div>
+          <ul class="play-list"></ul>
+        </div>
+
+        <div class="weather" data-content id="weather">
+          <input type="text" class="city input-utils" id="city" placeholder="Minsk" autoComplete="off"/>
+          <div class="temperature-block">
+            <div class="btn btn__label weather-icon" id="weather-icon"></div>
+            <span class="temperature" id="temperature"></span>
+            <span class="weather-description" id="weather-desc"></span>
+          </div>
+          <span class="weather-error" id="weather-error"></span>
+          <div class="wind" id="wind"></div>
+          <div class="humidity" id="humidity"></div>
+        </div>
+
+        <div class="todo" data-content id="todo">
+          <form>
+            <input type="text" class="todo-input input-utils" id ="todo-input" minlength="3" />
+            <button class="todo-button btn btn__primary" id="todo-button" value="Add" type="submit">Add</button>
+          </form>
+
+          <ul class="todo-list" id="todo-list"></ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+  </footer>
+  <script src="./js/quote.js"></script>
+  <script src="./js/player.js"></script>
+  <script src="./js/weather.js"></script>
+  <script src="./js/todo.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
